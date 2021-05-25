@@ -85,18 +85,18 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-19.9341908</X>
-					<Y>14.0916252</Y>
-					<Z>-19.0645885</Z>
-					<R00>-0.69116801</R00>
-					<R01>0.319433928</R01>
-					<R02>-0.648266017</R02>
+					<X>-19.3742924</X>
+					<Y>14.0712776</Y>
+					<Z>-19.4712677</Z>
+					<R00>-0.912823856</R00>
+					<R01>0.176339477</R01>
+					<R02>-0.368316561</R02>
 					<R10>-0</R10>
-					<R11>0.897012949</R11>
-					<R12>0.442004323</R12>
-					<R20>0.722694159</R20>
-					<R21>0.305499256</R21>
-					<R22>-0.619986653</R22>
+					<R11>0.901955009</R11>
+					<R12>0.431830317</R12>
+					<R20>0.408353627</R20>
+					<R21>0.394185007</R21>
+					<R22>-0.823325932</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -10550,7 +10550,13 @@ local function isInstance(className: string) : boolean
 	if cachedIsInstance[className] ~= nil then
 		return cachedIsInstance[className]
 	end
-	local success = pcall(Instance.new, className)
+	local instance
+	local success = pcall(function(name)
+		instance = Instance.new(name)
+	end, className)
+	if instance then
+		instance:Destroy()
+	end
 	cachedIsInstance[className] = success
 	return success
 end
@@ -10823,6 +10829,14 @@ return Style]]></ProtectedString>
 			</Properties>
 		</Item>
 	</Item>
+	<Item class="LanguageService" referent="RBX9DEC10BADADA4B44954F5AFAFAB3356C">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">LanguageService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+		</Properties>
+	</Item>
 	<Item class="DataStoreService" referent="RBXE1FD45AB862E439E943D7A7BF67E3D6F">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
@@ -10838,14 +10852,6 @@ return Style]]></ProtectedString>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="HttpEnabled">true</bool>
 			<string name="Name">HttpService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="LanguageService" referent="RBX9DEC10BADADA4B44954F5AFAFAB3356C">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">LanguageService</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
