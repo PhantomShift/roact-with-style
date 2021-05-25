@@ -16,7 +16,13 @@ local function isInstance(className: string) : boolean
     if cachedIsInstance[className] ~= nil then
         return cachedIsInstance[className]
     end
-    local success = pcall(Instance.new, className)
+    local instance
+    local success = pcall(function(name)
+        instance = Instance.new(name)
+    end, className)
+    if instance then
+        instance:Destroy()
+    end
     cachedIsInstance[className] = success
     return success
 end
