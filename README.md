@@ -202,5 +202,6 @@ local DarkMenu = DarkMode:apply(Roact.createElement(Menu))
 
 Roact.mount(DarkMenu, Player.PlayerGui, "Dark Menu")
 ```
+![Result of the example given above](example.png)
 
 Since I plan on using this for future projects, any feedback would be greatly appreciated! I still don't have that much knowledge about Roact, and would love to improve this module even further.
