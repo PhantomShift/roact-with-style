@@ -81,7 +81,7 @@ local TaggedElement = Roact.createElement("TextLabel", {
 Applies defined rules based on:
 
 - Global
-- tostring(element.props.component)
+- tostring(element.component)
 - element.props.Tag
 
 in the above order.
