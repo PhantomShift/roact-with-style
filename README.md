@@ -65,11 +65,11 @@ explicitly creating a new element/tree whenever a style is to be applied.
 
 Usage Example of `Tag`:
 ```lua
-local TagExample = {
+local TagExample = Style.new("TagExample", {
     Title = {
         Font = Enum.Font.ArialBold
     }
-}
+})
 
 local TaggedElement = Roact.createElement("TextLabel", {
     Tag = "Title" --> When rendered, the TextLabel will have its Font property set to ArialBold
