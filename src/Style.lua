@@ -126,6 +126,12 @@ function Style:apply(element)
                 local rendered = old_render(this)
                 return self:apply(rendered)
             end
+        elseif type(element.component) == "function" then
+            local original = element.component
+            element.component = function(props)
+                local newElement = original(props)
+                return self:apply(newElement)
+            end
         end
         if element.props[Roact.Children] then
             for i, child in pairs(element.props[Roact.Children]) do
